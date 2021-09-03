@@ -1,2 +1,5 @@
 Notes to Chapter 11
 Polymorphism, inheritance, and Dynamic binding
+Inheritance: creating new classes that inherit the methods and values of its superclass
+
+Polymorphism is allowing all objects to be processed the same as their parents. If a method parameter needs an "animal" class, then the dog, cat, bird, small bird etc. classes that are descended from animal are able to be passed to that method.
