@@ -1,64 +1,100 @@
 package calendar;
 
 /**
- * This class takes a file and generates a list of ingredients with their name, quantity and type (pound, cup, tsp etc.)
+ * Generates a list of ingredients from a Meal with their name, quantity and type of measurement (pound, cup, tsp etc).
  * @author Dallen Corry
  * @version 1.0
  * @since 9/29/2021
  */
 public class IngredientsList {
-	private String[] ingredientsQuantity;//ie, 3, 2, .5 etc.
-	private String[] ingredientsMeasurmentType;//ie pound, cup, tsp, etc.
-	private String[] ingredientsNames;//ie chicken, flour, salt, etc.
+	protected String[] ingredientsQuantity;			//i.e 3, 2, .5 etc.
+	protected String[] ingredientsMeasurmentType;	//i.e pound, cup, tsp, etc.
+	protected String[] ingredientsNames;			//i.e chicken, flour, salt, etc.
 	//so 3 pounds of chicken is converted into 3 separate arrays.
 	
-	//constructors
+	/**
+	 * Default constructor sets all 3 variables to String[0].
+	 */
 	public IngredientsList(){
 		ingredientsQuantity = new String[0];
 		ingredientsMeasurmentType = new String[0];
 		ingredientsNames = new String[0];
 	}
 
-	public IngredientsList(String[] ingredientsQuantity, String[] ingredientsMeasurmentType, String[] ingredientsNames) {
-		this.ingredientsQuantity = ingredientsQuantity;
-		this.ingredientsMeasurmentType = ingredientsMeasurmentType;
-		this.ingredientsNames = ingredientsNames;
+	/**
+	 * Creates Ingredients list with specified ranges as Arrays.
+	 * @param Q (String[]) The Quantity of an ingredient.
+	 * @param T (String[]) The Type of measurement of an ingredient (i.e. cup, pound, etc.).
+	 * @param N (String[]) The Name of an ingredient (i.e. Chicken, Onion, etc.).
+	 */
+	public IngredientsList(String[] Q, String[] T, String[] N) {
+		ingredientsQuantity = Q;
+		ingredientsMeasurmentType = T;
+		ingredientsNames = N;
 	}
 
-	//getters and setters
+	/**
+	 * Gets the quantity of a specified ingredient.
+	 * @param i (int) index of the ingredient to be gotten.
+	 * @return (String) the quantity of the specified ingredient.
+	 */
 	public String getIngredientsQuantity(int i) {
 		return ingredientsQuantity[i];
 	}
-
-	public void setIngredientsQuantity(int i, String ingredientsQuantity) {
-		this.ingredientsQuantity[i] = ingredientsQuantity;
+	/**
+	 * Sets the quantity of a specified ingredient.
+	 * @param i (int) index of the ingredient to be set.
+	 * @param s (String) the quantity to be set.
+	 */
+	public void setIngredientsQuantity(int i, String s) {
+		ingredientsQuantity[i] = s;
 	}
-
+	/**
+	 * Gets the type of measurement of a specified ingredient (i.e. pound, cup, etc).
+	 * @param i (int) index of the ingredient to be gotten.
+	 * @return (String) the type of measurement of the specified ingredient.
+	 */
 	public String getIngredientsMeasurmentType(int i) {
 		return ingredientsMeasurmentType[i];
 	}
-
-	public void setIngredientsMeasurmentType(int i, String ingredientsMeasurmentType) {
-		this.ingredientsMeasurmentType[i] = ingredientsMeasurmentType;
+	/**
+	 * Sets the measurement type of a specified ingredient (i.e. pound, cup, etc).
+	 * @param i (int) index of the ingredient to be set.
+	 * @param s (String) the measurement type to be set.
+	 */
+	public void setIngredientsMeasurmentType(int i, String s) {
+		ingredientsMeasurmentType[i] = s;
 	}
-
+	/**
+	 * Gets the name of a specified ingredient.
+	 * @param i (int) index of the ingredient to be gotten.
+	 * @return (String) the name of the specified ingredient.
+	 */
 	public String getIngredientsNames(int i) {
 		return ingredientsNames[i];
 	}
-
-	public void setIngredientsNames(int i, String ingredientsNames) {
-		this.ingredientsNames[i] = ingredientsNames;
+	/**
+	 * Gets the entire array of ingredient names.
+	 * @return (String[]) the array of Ingredient names.
+	 */
+	public String[] getIngredientsNames() {
+		return ingredientsNames;
+	}
+	/**
+	 * Gets the name of a specified ingredient.
+	 * @param i (int) index of the ingredient to be set.
+	 * @param s (String) the name of the specified ingredient to be set.
+	 */
+	public void setIngredientsNames(int i, String s) {
+		ingredientsNames[i] = s;
 	}
 	
 	@Override
 	public String toString() {
-//		return "";
 		String string="";
-		for(int i=0; i<ingredientsNames.length;i++)
-		{
+		for(int i=0; i<ingredientsNames.length;i++){
 			string += "\n\t"+ingredientsQuantity[i]+" "+ingredientsMeasurmentType[i]+" "+ingredientsNames[i];
 		}
 		return string;
 	}
-	
 }
